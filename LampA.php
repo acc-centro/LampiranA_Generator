@@ -84,7 +84,7 @@
         <label for="nama">Nama :</label>
         <input type="text" style="text-transform: uppercase;" class="form-control text-left" maxlength="60" name="full_name">
 
-        <?php /*
+        <?php /*      
         <div class="input-group mb-0">
         <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n1">
         <input type="text" style="text-transform: uppercase;" class="form-control text-center"  maxlength="1" name="n2">
@@ -154,12 +154,13 @@
         <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n60">
         */ ?>
         <p>(Ejaan nama seperti pada kad pengenalan. Gelaran pada hadapan nama seperti Datuk, Mr., Encik, Haji, Cik dsb tidak dibenarkan)</p>
-        </div>
       <br>
 
       <label for="nom_kp">Nombor Kad Pengenalan Baru :</label>
-      <div class="input-group mb-0">
-      <input type="number" class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n61">
+      <input type="number" class="form-control text-left" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 14); }" name="ID_number">
+      
+      <?php 
+      /*
         <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n62">
         <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n63">
         <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n64">
@@ -173,12 +174,16 @@
         <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n70">
         <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n71">
         <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n72">
-      </div>
+        */ 
+        ?>
+
       <br>
       <br>
 
       <label for="nom_pas"><b>Nombor Pasport :</b></label>
-      <div class="input-group mb-0">
+      <input type="number"  class="form-control text-left"  oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 13); }" name="pasport_number">
+        <?php 
+        /*
       <input type="number"  class="form-control text-center"  oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n73">
         <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n74">
         <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n75">
@@ -192,12 +197,16 @@
         <input type="number" class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n83">
         <input type="number" class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n84">
         <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n85">
-      </div>
+      */
+      ?>
       <br>
       <br>
 
       <label for="nom_ab">Nombor Akaun Bank :</label>
-      <div class="input-group mb-0">
+      <input type="number" class="form-control text-left" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 16); }" name="acc_number">
+
+      <?php
+      /*
       <input type="number" class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n86">
         <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n87">
         <input type="number" class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n88">
@@ -214,7 +223,9 @@
         <input type="number" class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n99">
         <input type="number" class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n100">
         <input type="number" class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n101">
-      </div>
+        */ 
+        ?>
+
       <p>(Nombor Akaun mestilah berturutan tanpa sengkang [space])</p>
       <br>
 
