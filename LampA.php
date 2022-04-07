@@ -82,6 +82,8 @@
 <div class="container">
 <form action="LampA_pdf.php" method="post">
         <label for="nama">Nama :</label>
+        <input type="text" style="text-transform: uppercase;" class="form-control text-left" maxlength="60" name="full_name">
+
         <?php /*
         <div class="input-group mb-0">
         <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n1">
