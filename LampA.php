@@ -82,6 +82,7 @@
 <div class="container">
 <form action="LampA_pdf.php" method="post">
         <label for="nama">Nama :</label>
+        <?php /*
         <div class="input-group mb-0">
         <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n1">
         <input type="text" style="text-transform: uppercase;" class="form-control text-center"  maxlength="1" name="n2">
@@ -149,6 +150,7 @@
         <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n58">
         <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n59">
         <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n60">
+        */ ?>
         <p>(Ejaan nama seperti pada kad pengenalan. Gelaran pada hadapan nama seperti Datuk, Mr., Encik, Haji, Cik dsb tidak dibenarkan)</p>
         </div>
       <br>
