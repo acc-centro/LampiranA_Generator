@@ -74,7 +74,7 @@
       <b>Untuk Pembayaran Am</b>
     </h1>
     <h3 class="mb-3" style="font-size:20px">
-      <u>Melalui Alliance Online BANKING</u>
+      <u>Melalui Alliance Online Banking</u>
     </h3>
   </div>
 </header>
