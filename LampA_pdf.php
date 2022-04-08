@@ -1,6 +1,8 @@
 <?php
 //require LampA.php
 
+//codes need to be alter (Backend) 
+
 require('fpdf/fpdf.php');
 
 class PDF extends FPDF
