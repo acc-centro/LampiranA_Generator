@@ -83,9 +83,11 @@
 <form action="LampA_pdf.php" method="post">
         <label for="nama">Nama :</label>
         <input type="text" style="text-transform: uppercase;" class="form-control text-left" maxlength="60" name="full_name">
-
-        <?php /*      
         <div class="input-group mb-0">
+          <p>(Ejaan nama seperti pada kad pengenalan. Gelaran pada hadapan nama seperti Datuk, Mr., Encik, Haji, Cik dsb tidak dibenarkan)</p>
+        </div>
+        
+        <?php /*
         <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n1">
         <input type="text" style="text-transform: uppercase;" class="form-control text-center"  maxlength="1" name="n2">
         <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n3">
@@ -153,11 +155,11 @@
         <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n59">
         <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n60">
         */ ?>
-        <p>(Ejaan nama seperti pada kad pengenalan. Gelaran pada hadapan nama seperti Datuk, Mr., Encik, Haji, Cik dsb tidak dibenarkan)</p>
+        
       <br>
 
       <label for="nom_kp">Nombor Kad Pengenalan Baru :</label>
-      <input type="number" class="form-control text-left" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 14); }" name="ID_number">
+      <input type="number" class="form-control text-left" oninput="if((this.value.length) > 12) { this.value = this.value.substring(0, 12); }" name="ID_number">
       
       <?php 
       /*
@@ -181,7 +183,7 @@
       <br>
 
       <label for="nom_pas"><b>Nombor Pasport :</b></label>
-      <input type="number"  class="form-control text-left"  oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 13); }" name="pasport_number">
+      <input type="number"  class="form-control text-left"  oninput="if((this.value.length) > 13) { this.value = this.value.substring(0, 13); }" name="pasport_number">
         <?php 
         /*
       <input type="number"  class="form-control text-center"  oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n73">
@@ -203,7 +205,7 @@
       <br>
 
       <label for="nom_ab">Nombor Akaun Bank :</label>
-      <input type="number" class="form-control text-left" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 16); }" name="acc_number">
+      <input type="number" class="form-control text-left" oninput="if((this.value.length) > 16) { this.value = this.value.substring(0, 16); }" name="acc_number">
 
       <?php
       /*
@@ -229,11 +231,34 @@
       <p>(Nombor Akaun mestilah berturutan tanpa sengkang [space])</p>
       <br>
 
+      <?php 
+      /* use curl and decode json to receive all banks; use foreach looping to get bnk desc,bnk length ... etc */
+      $ch = curl_init();
+
+      curl_setopt($ch, CURLOPT_URL, "https://s3p.sabah.gov.my/api_eresit/bank" );
+      curl_setopt($ch, CURLOPT_HEADER, 0);
+      curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+
+      $json = curl_exec($ch);
+      curl_close($ch);
+
+      $bank = json_decode($json, true);
+      //print ($bank);
+
+      ?>
+      <br>
       <label for="nam_ba">Nama Bank :</label>
       <div class="input-group mb-0">
       <select name="nama-bank" id="nama-bank">
-        <option value="Bank Islam Malaysia Berhad" maxlength=16>Bank Islam Malaysia Berhad</option>
-        <option value="Maybank Berhad" maxlength=16>Maybank Berhad</option>
+      <?php
+
+        foreach($bank['data'] as $bank): { ?>
+
+        <option value="<?= ($bank['BNK_CODE']); ($bank['BNK_DESC']); ($bank['ACC_LENGTH'])?>"><?= ($bank['BNK_CODE'])." ".($bank['BNK_DESC'])?></option>
+        
+       <?php } endforeach;
+       ?>
+       
       </select>
       </div>
       <br>
