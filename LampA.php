@@ -231,11 +231,34 @@
       <p>(Nombor Akaun mestilah berturutan tanpa sengkang [space])</p>
       <br>
 
+      <?php 
+      /* use curl and decode json to receive all banks; use foreach looping to get bnk desc,bnk length ... etc */
+      $ch = curl_init();
+
+      curl_setopt($ch, CURLOPT_URL, "https://s3p.sabah.gov.my/api_eresit/bank" );
+      curl_setopt($ch, CURLOPT_HEADER, 0);
+      curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+
+      $json = curl_exec($ch);
+      curl_close($ch);
+
+      $bank = json_decode($json, true);
+      //print ($bank);
+
+      ?>
+      <br>
       <label for="nam_ba">Nama Bank :</label>
       <div class="input-group mb-0">
       <select name="nama-bank" id="nama-bank">
-        <option value="Bank Islam Malaysia Berhad" maxlength=16>Bank Islam Malaysia Berhad</option>
-        <option value="Maybank Berhad" maxlength=16>Maybank Berhad</option>
+      <?php
+
+        foreach($bank['data'] as $bank): { ?>
+
+        <option value="<?= ($bank['BNK_CODE']); ($bank['BNK_DESC']); ($bank['ACC_LENGTH'])?>"><?= ($bank['BNK_CODE'])." ".($bank['BNK_DESC'])?></option>
+        
+       <?php } endforeach;
+       ?>
+       
       </select>
       </div>
       <br>
