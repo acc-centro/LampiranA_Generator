@@ -85,148 +85,22 @@
         <input type="text" style="text-transform: uppercase;" class="form-control text-left" maxlength="60" name="full_name">
         <div class="input-group mb-0">
           <p>(Ejaan nama seperti pada kad pengenalan. Gelaran pada hadapan nama seperti Datuk, Mr., Encik, Haji, Cik dsb tidak dibenarkan)</p>
-        </div>
-        
-        <?php /*
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n1">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center"  maxlength="1" name="n2">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n3">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n4">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n5">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n6">
-        <input type="text" style="text-transform: uppercase;"class="form-control text-center" maxlength="1" name="n7">
-        <input type="text" style="text-transform: uppercase;"class="form-control text-center"  maxlength="1" name="n8">
-        <input type="text" style="text-transform: uppercase;"class="form-control text-center" maxlength="1" name="n9">
-        <input type="text" style="text-transform: uppercase;"class="form-control text-center" maxlength="1" name="n10">
-        <input type="text" style="text-transform: uppercase;"class="form-control text-center" maxlength="1" name="n11">
-        <input type="text" style="text-transform: uppercase;"class="form-control text-center" maxlength="1" name="n12">
-        <input type="text" style="text-transform: uppercase;"class="form-control text-center" maxlength="1" name="n13">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center"  maxlength="1" name="n14">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n15">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n16">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n17">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n18">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n19">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n20">
-        </div>  
-        
-        <div class="input-group mb-0">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center"  maxlength="1" name="n21">
-        <input type="text" style="text-transform: uppercase;" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n22">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n23">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n24">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n25">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n26">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center"  maxlength="1" name="n27">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n28">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n29">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n30">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n31">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n32">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center"  maxlength="1" name="n33">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n34">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n35">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n36">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n37">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n38">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n39">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n40">
-        </div> 
-
-        <div class="input-group mb-3">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center"  maxlength="1" name="n41">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n42">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n43">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n44">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n45">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n46">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center"  maxlength="1" name="n47">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n48">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n49">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n50">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n51">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n52">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center"  maxlength="1" name="n53">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n54">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n55">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n56">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n57">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n58">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n59">
-        <input type="text" style="text-transform: uppercase;" class="form-control text-center" maxlength="1" name="n60">
-        */ ?>
-        
+        </div>      
       <br>
 
       <label for="nom_kp">Nombor Kad Pengenalan Baru :</label>
       <input type="number" class="form-control text-left" oninput="if((this.value.length) > 12) { this.value = this.value.substring(0, 12); }" name="ID_number">
-      
-      <?php 
-      /*
-        <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n62">
-        <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n63">
-        <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n64">
-        <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n65">
-        <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n66">
-      <div class="input-group-prepend"><span class="input-group-text">-</span></div>
-      <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n67">
-        <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n68">
-      <div class="input-group-prepend"><span class="input-group-text">-</span></div>
-      <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n69">
-        <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n70">
-        <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n71">
-        <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n72">
-        */ 
-        ?>
 
       <br>
       <br>
 
       <label for="nom_pas"><b>Nombor Pasport :</b></label>
       <input type="number"  class="form-control text-left"  oninput="if((this.value.length) > 13) { this.value = this.value.substring(0, 13); }" name="pasport_number">
-        <?php 
-        /*
-      <input type="number"  class="form-control text-center"  oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n73">
-        <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n74">
-        <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n75">
-        <input type="number"class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n76">
-        <input type="number" class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n77">
-        <input type="number" class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n78">
-        <input type="number" class="form-control text-center"  oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n79">
-        <input type="number" class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n80">
-        <input type="number" class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n81">
-        <input type="number" class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n82">
-        <input type="number" class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n83">
-        <input type="number" class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n84">
-        <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n85">
-      */
-      ?>
       <br>
       <br>
 
       <label for="nom_ab">Nombor Akaun Bank :</label>
       <input type="number" class="form-control text-left" oninput="if((this.value.length) > 16) { this.value = this.value.substring(0, 16); }" name="acc_number">
-
-      <?php
-      /*
-      <input type="number" class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n86">
-        <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n87">
-        <input type="number" class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n88">
-        <input type="number" class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n89">
-        <input type="number" class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n90">
-        <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n91">
-        <input type="number" class="form-control text-center"  oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n92">
-        <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n93">
-        <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n94">
-        <input type="number" class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n95">
-        <input type="number"  class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n96">
-        <input type="number" class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n97">
-        <input type="number" class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }"name="n98">
-        <input type="number" class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n99">
-        <input type="number" class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n100">
-        <input type="number" class="form-control text-center" oninput="if((this.value.length) > 1) { this.value = this.value.substring(0, 1); }" name="n101">
-        */ 
-        ?>
 
       <p>(Nombor Akaun mestilah berturutan tanpa sengkang [space])</p>
       <br>
@@ -246,7 +120,6 @@
       //print ($bank);
 
       ?>
-      <br>
       <label for="nam_ba">Nama Bank :</label>
       <div class="input-group mb-0">
       <select name="nama-bank" id="nama-bank">
