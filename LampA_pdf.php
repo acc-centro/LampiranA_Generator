@@ -30,32 +30,33 @@ $pdf = new PDF();
 $pdf->AddPage();
 
 $pdf->Cell(20,80,'Nama :',0,0,'R');
-foreach($_POST as $name=>$value) :{
+$box = 17;
+foreach($_POST as $nama=>$value) :{//error
+    $pdf->SetXY($box+=8,52);
     $pdf->SetFont('Arial','',12);
-    $pdf->SetXY(25,52);
-    $pdf->Cell(8,8, $name.' '.strtoupper($value),1,0,'C'); //alter this part
+    $pdf->Cell(8,8,$nama.' '.strtoupper($value),1,0,'C'); //alter this part
     $pdf->Ln(0);
-}
-endforeach;
 
     $pdf->SetFont('Arial','',12);
     $pdf->Cell(15,80,'',0,0,'L');
-    $pdf->SetXY(25,60);
-    //$pdf->Cell(8,8,strtoupper($_POST['n21']),1,0,'C');
+    $pdf->SetXY($box+=0,60);
+    //$pdf->Cell(8,8,$name.' '.strtoupper($value),1,0,'C');
     $pdf->Ln(0);
 
     $pdf->SetFont('Arial','',12);
     $pdf->Cell(25,80,'',0,0,'L');
-    $pdf->SetXY(25,68);
-   // $pdf->Cell(8,8,strtoupper($_POST['n41']),1,0,'C');
+    $pdf->SetXY($box+=0,68);
+    //$pdf->Cell(8,8,$name.' '.strtoupper($value),1,0,'C');
     $pdf->Ln(6);
+}
+endforeach;
 
     $pdf->SetFont('Arial','',12);
     $pdf->Cell(76,30,'Nombor Kad Pengenalan Baru :',0,0,'R');
     $pdf->SetXY(25,91);
    // $pdf->Cell(11.4,8,$_POST['n61'],1,0,'C');
     $pdf->Ln(6);
-
+  
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(52,30,'Nombor Pasport :',0,0,'R');
     $pdf->SetXY(25,114);
