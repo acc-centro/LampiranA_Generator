@@ -127,7 +127,7 @@
 
         foreach($bank['data'] as $bank): { ?>
 
-        <option value="<?= ($bank['BNK_CODE']); ($bank['BNK_DESC']); ($bank['ACC_LENGTH'])?>"><?= ($bank['BNK_CODE'])." ".($bank['BNK_DESC'])?></option>
+        <option value="<?= ($bank['BNK_CODE']); ($bank['BNK_DESC']); ($bank['ACC_LENGTH'])?>"><?= ($bank['BNK_CODE']).' '.($bank['BNK_DESC'])?></option>
         
        <?php } endforeach;
        ?>
