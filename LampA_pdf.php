@@ -65,10 +65,12 @@ $pdf->AddPage();
 
 $pdf->Cell(20,80,'Nama :',0,0,'R');
 $box = 17;
-foreach($_POST as $nama=>$value) :{//error
+$word = $_POST['full_name'];
+$split_word=  str_split($word);
+foreach($split_word as $value) :{
     $pdf->SetXY($box+=8,52);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(8,8,$nama.' '.strtoupper($value),1,0,'C'); //alter this part
+    $pdf->Cell(8,8,strtoupper($value),1,0,'C'); //alter this part
     $pdf->Ln(0);
 
     $pdf->SetFont('Arial','',12);
