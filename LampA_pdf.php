@@ -2,41 +2,6 @@
 //require LampA.php
 //codes need to be alter (Backend) 
 
-echo '<pre>';
-print_r($_POST);
-echo '<br>';
-
-// $_POST['full_name'] (max 60 chars = 3 lines = 20 chars each line)
-$string = $_POST['full_name'];
-
-// wrap words, max langth 20char
-// if more than 20 char, expecting multi lines separated by "\n"
-$full_name = wordwrap($string, 20, "\n");
-echo $full_name;
-echo '<br>';
-echo '<br>';
-
-// turn multi-line into arrays
-$lines = explode("\n", $full_name);
-print_r($lines);
-echo '<br>';
-
-// loop every line
-foreach ($lines as $line) {
-    $letter = str_split($line); // break each line into characters
-    print_r($letter);
-
-    for ($index=0; $index<sizeof($letter); $index++) {
-        echo '['.$letter[$index].']';
-    }
-    echo '<br>';
-    echo '<br>';
-}
-
-echo '</pre>';
-
-
-/**
 require('fpdf/fpdf.php');
 
 class PDF extends FPDF
@@ -63,52 +28,120 @@ class PDF extends FPDF
 $pdf = new PDF();
 $pdf->AddPage();
 
+//echo '<pre>';
 $pdf->Cell(20,80,'Nama :',0,0,'R');
 $box = 17;
-$word = $_POST['full_name'];
-$split_word=  str_split($word);
-foreach($split_word as $value) :{
+$string = $_POST['full_name'];
+$full_name = wordwrap($string, 20,"<br>\n",TRUE);
+//echo $full_name;
+//echo '<br>';
+$lines = explode("<br>\n", $full_name);
+//print_r($full_name);
+//echo '<br>';
+
+foreach($lines as $line) :{
+ 
+    $split_word= str_split($line);
+   // $pdf->Ln(0);
+    //print_r($split_word);
+
+    for($index=0; $index<sizeof($split_word); $index++) {
+
     $pdf->SetXY($box+=8,52);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(8,8,strtoupper($value),1,0,'C'); //alter this part
-    $pdf->Ln(0);
+    $pdf->Cell(8,8,strtoupper($split_word[$index]),1,0,'C'); 
+    $pdf->Ln(10);
 
-    $pdf->SetFont('Arial','',12);
-    $pdf->Cell(15,80,'',0,0,'L');
-    $pdf->SetXY($box+=0,60);
+    //$pdf->SetFont('Arial','',12);
+    //$pdf->Cell(15,80,'',0,0,'L');
+    //$pdf->SetXY($box+=0,60);
     //$pdf->Cell(8,8,$name.' '.strtoupper($value),1,0,'C');
-    $pdf->Ln(0);
+    //$pdf->Ln(0);
 
-    $pdf->SetFont('Arial','',12);
-    $pdf->Cell(25,80,'',0,0,'L');
-    $pdf->SetXY($box+=0,68);
+   // $pdf->SetFont('Arial','',12);
+   // $pdf->Cell(25,80,'',0,0,'L');
+   // $pdf->SetXY($box+=0,68);
     //$pdf->Cell(8,8,$name.' '.strtoupper($value),1,0,'C');
-    $pdf->Ln(6);
+    //$pdf->Ln(6);
+
+    } 
+    
 }
 endforeach;
 
-    $pdf->SetFont('Arial','',12);
-    $pdf->Cell(76,30,'Nombor Kad Pengenalan Baru :',0,0,'R');
-    $pdf->SetXY(25,91);
-   // $pdf->Cell(11.4,8,$_POST['n61'],1,0,'C');
-    $pdf->Ln(6);
-  
-    $pdf->SetFont('Arial','B',12);
-    $pdf->Cell(52,30,'Nombor Pasport :',0,0,'R');
-    $pdf->SetXY(25,114);
-    //$pdf->Cell(12.3,8,$_POST['n73'],1,0,'C');
-    $pdf->Ln(5);
+$pdf->Cell(76,30,'Nombor Kad Pengenalan Baru :',0,0,'R');
+$box = 17;
+$string = $_POST['ID_number'];
+$id_number = wordwrap($string, 14,"<br>\n",TRUE);
+//echo $full_name;
+//echo '<br>';
+$lines = explode("<br>\n", $id_number);
+//print_r($full_name);
+//echo '<br>';
 
+foreach($lines as $line): {
+
+    $split_word= str_split($line);
+    //print_r($split_word);
+
+    for($index=0; $index<sizeof($split_word); $index++) {
+
+    $pdf->SetFont('Arial','',12);
+    $pdf->SetXY($box+=8,79);
+    $pdf->Cell(8,8,$split_word[$index],1,0,'C');
+    $pdf->Ln(10);
+
+    }
+
+} endforeach;
+
+$pdf->Cell(49.5,30,'Nombor Pasport :',0,0,'R');
+$box = 17;
+$string = $_POST['pasport_number'];
+$pasport_number = wordwrap($string, 13,"<br>\n",TRUE);
+$lines = explode("<br>\n", $pasport_number);
+
+foreach($lines as $line): {
+
+    $split_word= str_split($line);
+    //print_r($split_word);
+
+    for($index=0; $index<sizeof($split_word); $index++) {
+  
+   // $pdf->SetFont('Arial','B',12);
+    $pdf->SetXY($box+=8,106);
+    $pdf->Cell(8,8,$split_word[$index],1,0,'C');
+    $pdf->Ln(10);
+
+    }
+
+} endforeach;
+
+$pdf->Cell(57.5,30,'Nombor Akaun Bank :',0,0,'R');
+$box = 17;
+$string = $_POST['acc_number'];
+$acc_number = wordwrap($string, 16,"<br>\n",TRUE);
+$lines = explode("<br>\n", $acc_number);
+
+foreach($lines as $line): {
+
+    $split_word= str_split($line);
+    //print_r($split_word);
+
+    for($index=0; $index<sizeof($split_word); $index++) {
     
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(58,30,'Nombor Akaun Bank :',0,0,'R');
-    $pdf->SetXY(25,136);
-    //$pdf->Cell(10,8,$_POST['n86'],1,0,'C');
-    $pdf->Ln(5);
+    $pdf->SetXY($box+=8,133);
+    $pdf->Cell(8,8,$split_word[$index],1,0,'C');
+    $pdf->Ln(10);
+
+    }
+
+} endforeach;
     
     $pdf->SetFont('Arial','',12);
     $pdf->Cell(41,35,'Nama Bank :',0,0,'R');
-    $pdf->SetXY(25,161);
+    $pdf->SetXY(25,163);
     $pdf->Cell(160,8,$_POST['nama-bank'],1,0,'L');
     $pdf->Ln(5);
 
@@ -131,5 +164,4 @@ endforeach;
 
 
 $pdf->Output();
-*/
 ?>
