@@ -79,53 +79,7 @@
 
 <div class="container">
   <form action="LampA_pdf.php" method="post">
-
-      <label for="nom_kp">Nombor Kad Pengenalan Baru :</label>
-      <input type="text" class="form-control text-left" maxlength="14" name="ID_number">
-
-      <br>
-      <br>
-
-      <label for="nom_pas"><b>Nombor Pasport :</b></label>
-      <input type="number"  class="form-control text-left"  oninput="if((this.value.length) > 13) { this.value = this.value.substring(0, 13); }" name="pasport_number">
-      <br>
-      <br>
-
-      <label for="nom_ab">Nombor Akaun Bank :</label>
-      <input type="number" class="form-control text-left" oninput="if((this.value.length) > 16) { this.value = this.value.substring(0, 16); }" name="acc_number">
-
-      <p>(Nombor Akaun mestilah berturutan tanpa sengkang [space])</p>
-      <br>
-
-      <?php 
-      /* use curl and decode json to receive all banks; use foreach looping to get bnk desc,bnk length ... etc */
-      $ch = curl_init();
-
-      curl_setopt($ch, CURLOPT_URL, "https://s3p.sabah.gov.my/api_eresit/bank" );
-      curl_setopt($ch, CURLOPT_HEADER, 0);
-      curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
-
-      $json = curl_exec($ch);
-      curl_close($ch);
-
-      $bank = json_decode($json, true);
-      //print ($bank);
-
-      ?>
-      <label for="nam_ba">Nama Bank :</label>
-      <div class="input-group mb-0">
-      <select name="nama-bank" id="nama-bank">
-      <?php
-
-        foreach($bank['data'] as $bank): { ?>
-
-        <option value="<?= ($bank['BNK_CODE']); ($bank['BNK_DESC']); ($bank['ACC_LENGTH'])?>"><?= ($bank['BNK_CODE']).' '.($bank['BNK_DESC'])?></option>
-        
-       <?php } endforeach;
-       ?>
-       
-      </select>
-    <div class="mb-3 row">
+  <div class="mb-3 row">
       <label for="nama" class="col-sm-2 col-form-label">Nama Penuh</label>
       <div class="col-sm-10">
         <input type="text" class="form-control" maxlength="60" name="full_name" id="nama" style="text-transform:uppercase;" required>
