@@ -64,8 +64,8 @@ $lines = explode("<br>\n", $full_name);
 foreach($lines as $line) :{
  
     $split_word= str_split($line);
-   // $pdf->Ln(0);
-    //print_r($split_word);
+   // echo '<br>';
+   // print_r($split_word);
 
     for($index=0; $index<sizeof($split_word); $index++) {
 
@@ -92,7 +92,7 @@ foreach($lines as $line) :{
 endforeach;
 
 $pdf->Cell(76,30,'Nombor Kad Pengenalan Baru :',0,0,'R');
-$box = 17;
+$box = 11.5;
 $string = $_POST['ID_number'];
 $id_number = wordwrap($string, 14,"<br>\n",TRUE);
 //echo $full_name;
@@ -109,8 +109,8 @@ foreach($lines as $line): {
     for($index=0; $index<sizeof($split_word); $index++) {
 
     $pdf->SetFont('Arial','',12);
-    $pdf->SetXY($box+=8,79);
-    $pdf->Cell(8,8,$split_word[$index],1,0,'C');
+    $pdf->SetXY($box+=13.3,79);
+    $pdf->Cell(13.3,8,$split_word[$index],1,0,'C');
     $pdf->Ln(10);
 
     }
@@ -118,7 +118,7 @@ foreach($lines as $line): {
 } endforeach;
 
 $pdf->Cell(49.5,30,'Nombor Pasport :',0,0,'R');
-$box = 17;
+$box = 13;
 $string = $_POST['pasport_number'];
 $pasport_number = wordwrap($string, 13,"<br>\n",TRUE);
 $lines = explode("<br>\n", $pasport_number);
@@ -131,8 +131,8 @@ foreach($lines as $line): {
     for($index=0; $index<sizeof($split_word); $index++) {
   
    // $pdf->SetFont('Arial','B',12);
-    $pdf->SetXY($box+=8,106);
-    $pdf->Cell(8,8,$split_word[$index],1,0,'C');
+    $pdf->SetXY($box+=12.3,106);
+    $pdf->Cell(12.3,8,$split_word[$index],1,0,'C');
     $pdf->Ln(10);
 
     }
@@ -140,7 +140,7 @@ foreach($lines as $line): {
 } endforeach;
 
 $pdf->Cell(57.5,30,'Nombor Akaun Bank :',0,0,'R');
-$box = 17;
+$box = 15 ;
 $string = $_POST['acc_number'];
 $acc_number = wordwrap($string, 16,"<br>\n",TRUE);
 $lines = explode("<br>\n", $acc_number);
@@ -153,8 +153,8 @@ foreach($lines as $line): {
     for($index=0; $index<sizeof($split_word); $index++) {
     
     $pdf->SetFont('Arial','',12);
-    $pdf->SetXY($box+=8,133);
-    $pdf->Cell(8,8,$split_word[$index],1,0,'C');
+    $pdf->SetXY($box+=10,133);
+    $pdf->Cell(10,8,$split_word[$index],1,0,'C');
     $pdf->Ln(10);
 
     }
