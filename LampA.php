@@ -89,7 +89,7 @@
       <br>
 
       <label for="nom_kp">Nombor Kad Pengenalan Baru :</label>
-      <input type="number" class="form-control text-left" oninput="if((this.value.length) > 12) { this.value = this.value.substring(0, 12); }" name="ID_number">
+      <input type="text" class="form-control text-left" maxlength="14" name="ID_number">
 
       <br>
       <br>
