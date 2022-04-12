@@ -23,6 +23,28 @@ class PDF extends FPDF
         $this->SetFont('Arial','U',12);
         $this->Cell(-180,50,'Melalui Alliance Online Banking',0,0,'C');
     }
+
+    function footer()
+    {
+        
+        //footer declaration
+        $this->SetFont('Arial','',12);
+        $this->Cell(177,40,'Saya mengesahkan bahawa maklumat dan butir-butir mengenai akaun bank seperti di',0,0,'R');
+        $this->Ln(0);
+        $this->Cell(176,49,'atas adalah milik saya. Saya bersetuju caj perkhidmatan bank (jika ada) atas bayaran',0,0,'R');
+        $this->Ln(0);
+        $this->Cell(134.5,57,'yang dikredit ke akaun berkenaan didebit ke akaun yang sama.',0,0,'R');
+        $this->Ln(0);
+        
+        //footer form
+        $this->SetFont('Arial','',12);
+        $this->Cell(104,85,'Tandatangan :__________________________',0,0,'R');
+        $this->Ln(12);
+        $this->Cell(104,85,'Nama Penuh :__________________________',0,0,'R');  $this->Cell(175,85,'Cop Syarikat :__________________',0,0,'L');
+        $this->Ln(12);
+        $this->Cell(104,85,'Tarikh            :__________________________',0,0,'R');
+
+    }
 }
 
 $pdf = new PDF();
@@ -144,24 +166,6 @@ foreach($lines as $line): {
     $pdf->SetXY(25,163);
     $pdf->Cell(160,8,$_POST['nama-bank'],1,0,'L');
     $pdf->Ln(5);
-
-    $pdf->SetFont('Arial','',12);
-    $pdf->Cell(177,40,'Saya mengesahkan bahawa maklumat dan butir-butir mengenai akaun bank seperti di',0,0,'R');
-    $pdf->Ln(0);
-    $pdf->Cell(176,49,'atas adalah milik saya. Saya bersetuju caj perkhidmatan bank (jika ada) atas bayaran',0,0,'R');
-    $pdf->Ln(0);
-    $pdf->Cell(134.5,57,'yang dikredit ke akaun berkenaan didebit ke akaun yang sama.',0,0,'R');
-    $pdf->Ln(0);
-
-    $pdf->SetFont('Arial','',12);
-    $pdf->Cell(104,85,'Tandatangan :__________________________',0,0,'R');
-    $pdf->Ln(12);
-    $pdf->Cell(43,85,'Nama Penuh :',0,0,'R');
-    $pdf->SetXY(53,218); 
-    $pdf->Cell(60,5,$_POST['nama-penuh'],'B',1,'L');  $pdf->Cell(175,-4,'Cop Syarikat :__________________',0,0,'R');
-    $pdf->Ln(12);
-    $pdf->Cell(104,-3,'Tarikh            :__________________________',0,0,'R');
-
 
 $pdf->Output();
 ?>
