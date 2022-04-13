@@ -65,31 +65,28 @@ foreach($lines as $line) :{
     $pdf->SetFont('Arial','',12);
 
     for($index=0; $index<20; $index++) {
-   
-            $pdf->SetXY($box1+=8,52);
-            $pdf->Cell(8,8,strtoupper($letter[$index]),1,0,'C'); 
-            $pdf->Ln(10);
+
+    //print_r($letter);
+   // echo sizeof($letter);
+    $pdf->SetXY($box1+=8,52);
+    $pdf->Cell(8,8,strtoupper($letter[$index]),1,0,'C'); 
+    $pdf->Ln(10);
+
     }
     for($index=20; $index<40; $index++){
 
-             $pdf->SetXY($box2+=8,60);
-             $pdf->SetFont('Arial','',12);
-                   
-             if(empty($letter[$index])){
-                 $letter[$index]= trim($letter[$index],20);
-                 $pdf->Cell(8,8,strtoupper($letter[$index]),1,0,'C');}
-            else{
-             $pdf->Cell(8,8,strtoupper($letter[$index]),1,0,'C');}
-             $pdf->Ln(6);
+    $pdf->SetXY($box2+=8,60);
+    $pdf->SetFont('Arial','',12);
+    $pdf->Cell(8,8,strtoupper($letter[$index]),1,0,'C'); 
+    $pdf->Ln(6);
     }
 
     for($index=40; $index<60; $index++){
 
-              $pdf->SetXY($box+=8,68);
-              $pdf->SetFont('Arial','',12);
-
-              $pdf->Cell(8,8,strtoupper($letter[$index]),1,0,'C'); 
-              $pdf->Ln(10);
+    $pdf->SetXY($box+=8,68);
+    $pdf->SetFont('Arial','',12);
+    $pdf->Cell(8,8,strtoupper($letter[$index]),1,0,'C'); 
+    $pdf->Ln(10);
     }
     
 } endforeach;
