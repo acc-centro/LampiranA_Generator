@@ -36,7 +36,7 @@ class PDF extends FPDF
         $this->Cell(134.5,57,'yang dikredit ke akaun berkenaan didebit ke akaun yang sama.',0,0,'R');
         $this->Ln(0);
         
-        //footer form
+        //form footer
         $this->SetFont('Arial','',12);
         $this->Cell(104,85,'Tandatangan :__________________________',0,0,'R');
         $this->Ln(12);
@@ -53,48 +53,48 @@ $pdf->AddPage();
 //echo '<pre>';
 $pdf->Cell(20,80,'Nama :',0,0,'R');
 $box = 17;
+$box1 = 17;
+$box2 = 17;
 $string = $_POST['full_name'];
-$full_name = wordwrap($string, 20,"<br>\n",TRUE);
-//echo $full_name;
-//echo '<br>';
-$lines = explode("<br>\n", $full_name);
-//print_r($full_name);
-//echo '<br>';
+//$full_name = wordwrap($string, 20 ,"<br>\n");
+$lines = explode("<br>\n", $string);
 
 foreach($lines as $line) :{
  
-    $split_word= str_split($line);
-   // echo '<br>';
-   // print_r($split_word);
-
-    for($index=0; $index<sizeof($split_word); $index++) {
-
-    $pdf->SetXY($box+=8,52);
+    $letter= str_split($line);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(8,8,strtoupper($split_word[$index]),1,0,'C'); 
+
+    for($index=0; $index<20; $index++) {
+
+    //print_r($letter);
+   // echo sizeof($letter);
+    $pdf->SetXY($box1+=8,52);
+    $pdf->Cell(8,8,strtoupper($letter[$index]),1,0,'C'); 
     $pdf->Ln(10);
 
-    //$pdf->SetFont('Arial','',12);
-    //$pdf->Cell(15,80,'',0,0,'L');
-    //$pdf->SetXY($box+=0,60);
-    //$pdf->Cell(8,8,$name.' '.strtoupper($value),1,0,'C');
-    //$pdf->Ln(0);
+    }
+    for($index=20; $index<40; $index++){
 
-   // $pdf->SetFont('Arial','',12);
-   // $pdf->Cell(25,80,'',0,0,'L');
-   // $pdf->SetXY($box+=0,68);
-    //$pdf->Cell(8,8,$name.' '.strtoupper($value),1,0,'C');
-    //$pdf->Ln(6);
+    $pdf->SetXY($box2+=8,60);
+    $pdf->SetFont('Arial','',12);
+    $pdf->Cell(8,8,strtoupper($letter[$index]),1,0,'C'); 
+    $pdf->Ln(6);
+    }
 
-    } 
+    for($index=40; $index<60; $index++){
+
+    $pdf->SetXY($box+=8,68);
+    $pdf->SetFont('Arial','',12);
+    $pdf->Cell(8,8,strtoupper($letter[$index]),1,0,'C'); 
+    $pdf->Ln(10);
+    }
     
-}
-endforeach;
+} endforeach;
 
 $pdf->Cell(76,30,'Nombor Kad Pengenalan Baru :',0,0,'R');
 $box = 11.5;
 $string = $_POST['ID_number'];
-$id_number = wordwrap($string, 14,"<br>\n",TRUE);
+$id_number = wordwrap($string, 14,"<br>\n");
 //echo $full_name;
 //echo '<br>';
 $lines = explode("<br>\n", $id_number);
@@ -105,11 +105,11 @@ foreach($lines as $line): {
 
     $split_word= str_split($line);
     //print_r($split_word);
-
+    $pdf->SetFont('Arial','',12);
     for($index=0; $index<sizeof($split_word); $index++) {
 
-    $pdf->SetFont('Arial','',12);
-    $pdf->SetXY($box+=13.3,79);
+    //$pdf->SetFont('Arial','',12);
+    $pdf->SetXY($box+=13.3,95);
     $pdf->Cell(13.3,8,$split_word[$index],1,0,'C');
     $pdf->Ln(10);
 
@@ -117,10 +117,11 @@ foreach($lines as $line): {
 
 } endforeach;
 
-$pdf->Cell(49.5,30,'Nombor Pasport :',0,0,'R');
+$pdf->SetFont('Arial','B',12);
+$pdf->Cell(52,30,'Nombor Pasport :',0,0,'R');
 $box = 13;
 $string = $_POST['pasport_number'];
-$pasport_number = wordwrap($string, 13,"<br>\n",TRUE);
+$pasport_number = wordwrap($string, 13,"<br>\n");
 $lines = explode("<br>\n", $pasport_number);
 
 foreach($lines as $line): {
@@ -130,8 +131,8 @@ foreach($lines as $line): {
 
     for($index=0; $index<sizeof($split_word); $index++) {
   
-   // $pdf->SetFont('Arial','B',12);
-    $pdf->SetXY($box+=12.3,106);
+    $pdf->SetFont('Arial','',12);
+    $pdf->SetXY($box+=12.3,122);
     $pdf->Cell(12.3,8,$split_word[$index],1,0,'C');
     $pdf->Ln(10);
 
@@ -139,10 +140,11 @@ foreach($lines as $line): {
 
 } endforeach;
 
+$pdf->SetFont('Arial','',12);
 $pdf->Cell(57.5,30,'Nombor Akaun Bank :',0,0,'R');
 $box = 15 ;
 $string = $_POST['acc_number'];
-$acc_number = wordwrap($string, 16,"<br>\n",TRUE);
+$acc_number = wordwrap($string, 16,"<br>\n");
 $lines = explode("<br>\n", $acc_number);
 
 foreach($lines as $line): {
@@ -153,7 +155,7 @@ foreach($lines as $line): {
     for($index=0; $index<sizeof($split_word); $index++) {
     
     $pdf->SetFont('Arial','',12);
-    $pdf->SetXY($box+=10,133);
+    $pdf->SetXY($box+=10,149);
     $pdf->Cell(10,8,$split_word[$index],1,0,'C');
     $pdf->Ln(10);
 
@@ -163,7 +165,7 @@ foreach($lines as $line): {
     
     $pdf->SetFont('Arial','',12);
     $pdf->Cell(41,35,'Nama Bank :',0,0,'R');
-    $pdf->SetXY(25,163);
+    $pdf->SetXY(25,179);
     $pdf->Cell(160,8,$_POST['nama-bank'],1,0,'L');
     $pdf->Ln(5);
 
