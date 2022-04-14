@@ -56,8 +56,8 @@ $box = 17;
 $box1 = 17;
 $box2 = 17;
 $string = $_POST['full_name'];
-//$full_name = wordwrap($string, 20 ,"<br>\n");
-$lines = explode("<br>\n", $string);
+//$full_name = wordwrap($string, 20 ,"\n");
+$lines = explode("\n", $string);
 
 foreach($lines as $line) :{
  
@@ -66,8 +66,6 @@ foreach($lines as $line) :{
 
     for($index=0; $index<20; $index++) {
 
-    //print_r($letter);
-   // echo sizeof($letter);
     $pdf->SetXY($box1+=8,52);
     $pdf->Cell(8,8,strtoupper($letter[$index]),1,0,'C'); 
     $pdf->Ln(10);
@@ -75,10 +73,20 @@ foreach($lines as $line) :{
     }
     for($index=20; $index<40; $index++){
 
-    $pdf->SetXY($box2+=8,60);
     $pdf->SetFont('Arial','',12);
+    $pdf->SetXY($box2+=8,60);
+
+    if(ctype_space($letter[$index])){
+
+        //echo 'This is a space, please delete this';
+        $letter[$index]=ltrim($letter[$index]);
+
+    }
+
     $pdf->Cell(8,8,strtoupper($letter[$index]),1,0,'C'); 
-    $pdf->Ln(6);
+    //print_r($letter[$index]);
+    $pdf->Ln(6); 
+
     }
 
     for($index=40; $index<60; $index++){
