@@ -50,13 +50,12 @@ class PDF extends FPDF
 $pdf = new PDF();
 $pdf->AddPage();
 
-//echo '<pre>';
+//--------------------------------------Nama----------------------------------//
 $pdf->Cell(20,80,'Nama :',0,0,'R');
 $box = 17;
 $box1 = 17;
 $box2 = 17;
 $string = $_POST['full_name'];
-//$full_name = wordwrap($string, 20 ,"\n");
 $lines = explode("\n", $string);
 
 foreach($lines as $line) :{
@@ -76,15 +75,19 @@ foreach($lines as $line) :{
     $pdf->SetFont('Arial','',12);
     $pdf->SetXY($box2+=8,60);
 
-    if(ctype_space($letter[$index])){
+    if(ctype_space($letter[$index])){                   //check for spacing in the string
 
         //echo 'This is a space, please delete this';
-        $letter[$index]=ltrim($letter[$index]);
+        $letter[$index]=ltrim($letter[$index]);         //suppose this should remove the spacing on the first character
+        $letter[$index]=array_shift($letter);           //push array, take first value and replace. haih
 
     }
 
+    //$oristring = $letter[$index];
+    //$letter[$index]= str_pad($oristring, 60);         //fill the rest of empty placeholders with " "
     $pdf->Cell(8,8,strtoupper($letter[$index]),1,0,'C'); 
     //print_r($letter[$index]);
+
     $pdf->Ln(6); 
 
     }
@@ -93,11 +96,13 @@ foreach($lines as $line) :{
 
     $pdf->SetXY($box+=8,68);
     $pdf->SetFont('Arial','',12);
-    $pdf->Cell(8,8,strtoupper($letter[$index]),1,0,'C'); 
+    //$pdf->Cell(8,8,strtoupper($letter[$index]),1,0,'C'); 
     $pdf->Ln(10);
     }
     
 } endforeach;
+
+//--------------------------------------Nombor kp-----------------------------------//
 
 $pdf->Cell(76,30,'Nombor Kad Pengenalan Baru :',0,0,'R');
 $box = 11.5;
@@ -125,6 +130,8 @@ foreach($lines as $line): {
 
 } endforeach;
 
+//--------------------------------------Nombor passport -----------------------------//
+
 $pdf->SetFont('Arial','B',12);
 $pdf->Cell(52,30,'Nombor Pasport :',0,0,'R');
 $box = 13;
@@ -148,6 +155,7 @@ foreach($lines as $line): {
 
 } endforeach;
 
+//--------------------------------------Nombor Akaun Bank --------------------------------//
 $pdf->SetFont('Arial','',12);
 $pdf->Cell(57.5,30,'Nombor Akaun Bank :',0,0,'R');
 $box = 15 ;
