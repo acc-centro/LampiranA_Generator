@@ -96,7 +96,7 @@
     </div>
 
     <div class="mb-3 row">
-      <label for="passport" class="col-sm-2 col-form-label">No.Pasport</label>
+      <label for="passport" class="col-sm-2 col-form-label">No.Passport</label>
       <div class="col-sm-10">
         <input type="text" class="form-control" maxlength="13" name="pasport_number" id="passport" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
       </div>
@@ -126,11 +126,26 @@
       </div>
     </div>
 
-    <div class="mb-5 row">
+    <div class="mb-3 row">
       <label for="bank_acc" class="col-sm-2 col-form-label">No.Akaun Bank</label>
       <div class="col-sm-10">
         <input type="text" class="form-control" maxlength="16" name="acc_number" id="bank_acc" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
         <small>Masukkan digit sahaja<br>* Bagi pemegang akaun <b>BSN</b> format baru 21-digit, anda dikehendaki untuk menggunakan nombor alternatif 16-digit yang disediakan oleh pihak BSN</small>
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="num_phone" class="col-sm-2 col-form-label">No.Telefon </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" maxlength="11" name="phone_num" id="num_phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
+        <small>(Masukkan digit sahaja)</small>
+      </div>
+    </div>
+
+    <div class="mb-5 row">
+      <label for="email" class="col-sm-2 col-form-label">Emel </label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" maxlength="30" name="user_email" id="email" required>
       </div>
     </div>
 
