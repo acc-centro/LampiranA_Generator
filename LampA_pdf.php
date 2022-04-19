@@ -189,7 +189,7 @@ foreach($lines as $line): {
 
 $pdf->SetFont('Arial','',12);
 $pdf->Cell(49.5,30,'Nombor Telefon :',0,0,'R');
-$box = 9.5;
+$box = 10.5;
 $string = $_POST['phone_num'];
 $phone_num = wordwrap($string, 11,"<br>\n");
 $lines = explode("<br>\n", $phone_num);
@@ -202,8 +202,8 @@ foreach($lines as $line): {
     for($index=0; $index<sizeof($split_word); $index++) {
   
     $pdf->SetFont('Arial','',12);
-    $pdf->SetXY($box+=16,180.5);
-    $pdf->Cell(16,8,$split_word[$index],1,0,'C');
+    $pdf->SetXY($box+=14.6,180.5);
+    $pdf->Cell(14.6,8,$split_word[$index],1,0,'C');
     $pdf->Ln(5);
 
     }
@@ -213,27 +213,10 @@ foreach($lines as $line): {
 //--------------------------------------Emel-----------------------------//
 
 $pdf->SetFont('Arial','',12);
-$pdf->Cell(29,30,'Emel :',0,0,'R');
-$box =17;
-$string = $_POST['user_email'];
-$email = wordwrap($string,30,"<br>\n");
-$lines = explode("<br>\n", $email);
-
-foreach($lines as $line): {
-
-    $split_word= str_split($line);
-    //print_r($split_word);
-
-    for($index=0; $index<sizeof($split_word); $index++) {
-  
-    $pdf->SetFont('Arial','',12);
-    $pdf->SetXY($box+=8,202.5);                             //max 30 char
-    $pdf->Cell(8,8,$split_word[$index],1,0,'C');
+    $pdf->Cell(29,30,'Emel :',0,0,'R');
+    $pdf->SetXY(25.5,202.5);
+    $pdf->Cell(160,8,$_POST['user_email'],1,0,'L');
     $pdf->Ln(5);
-
-    }
-
-} endforeach;
 
 
 $pdf->Output();
