@@ -67,7 +67,7 @@ foreach($lines as $line) :{
 
     $pdf->SetXY($box1+=8,52);
     $pdf->Cell(8,8,strtoupper($letter[$index]),1,0,'C'); 
-    $pdf->Ln(10);
+    $pdf->Ln(5);
 
     }
     for($index=20; $index<40; $index++){
@@ -78,8 +78,8 @@ foreach($lines as $line) :{
     if(ctype_space($letter[$index])){                   //check for spacing in the string
 
         //echo 'This is a space, please delete this';
-        $letter[$index]=ltrim($letter[$index]);         //suppose this should remove the spacing on the first character
-        $letter[$index]=array_shift($letter);           //push array, take first value and replace. haih
+        //$letter[$index]=ltrim($letter[$index]);       
+        //$letter[$index]=array_shift($letter);           //push array, take first value and replace. (belum jadi)
 
     }
 
@@ -96,8 +96,8 @@ foreach($lines as $line) :{
 
     $pdf->SetXY($box+=8,68);
     $pdf->SetFont('Arial','',12);
-    //$pdf->Cell(8,8,strtoupper($letter[$index]),1,0,'C'); 
-    $pdf->Ln(10);
+    $pdf->Cell(8,8,strtoupper($letter[$index]),1,0,'C'); 
+    $pdf->Ln(5);
     }
     
 } endforeach;
@@ -122,9 +122,9 @@ foreach($lines as $line): {
     for($index=0; $index<sizeof($split_word); $index++) {
 
     //$pdf->SetFont('Arial','',12);
-    $pdf->SetXY($box+=13.3,95);
+    $pdf->SetXY($box+=13.3,90);
     $pdf->Cell(13.3,8,$split_word[$index],1,0,'C');
-    $pdf->Ln(10);
+    $pdf->Ln(5);
 
     }
 
@@ -147,9 +147,9 @@ foreach($lines as $line): {
     for($index=0; $index<sizeof($split_word); $index++) {
   
     $pdf->SetFont('Arial','',12);
-    $pdf->SetXY($box+=12.3,122);
+    $pdf->SetXY($box+=12.3,112);
     $pdf->Cell(12.3,8,$split_word[$index],1,0,'C');
-    $pdf->Ln(10);
+    $pdf->Ln(5);
 
     }
 
@@ -171,9 +171,9 @@ foreach($lines as $line): {
     for($index=0; $index<sizeof($split_word); $index++) {
     
     $pdf->SetFont('Arial','',12);
-    $pdf->SetXY($box+=10,149);
+    $pdf->SetXY($box+=10,134);
     $pdf->Cell(10,8,$split_word[$index],1,0,'C');
-    $pdf->Ln(10);
+    $pdf->Ln(5);
 
     }
 
@@ -181,9 +181,60 @@ foreach($lines as $line): {
     
     $pdf->SetFont('Arial','',12);
     $pdf->Cell(41,35,'Nama Bank :',0,0,'R');
-    $pdf->SetXY(25,179);
+    $pdf->SetXY(25,158.5);
     $pdf->Cell(160,8,$_POST['nama-bank'],1,0,'L');
     $pdf->Ln(5);
+
+//--------------------------------------Nombor telefon-----------------------------//
+
+$pdf->SetFont('Arial','',12);
+$pdf->Cell(49.5,30,'Nombor Telefon :',0,0,'R');
+$box = 9.5;
+$string = $_POST['phone_num'];
+$phone_num = wordwrap($string, 11,"<br>\n");
+$lines = explode("<br>\n", $phone_num);
+
+foreach($lines as $line): {
+
+    $split_word= str_split($line);
+    //print_r($split_word);
+
+    for($index=0; $index<sizeof($split_word); $index++) {
+  
+    $pdf->SetFont('Arial','',12);
+    $pdf->SetXY($box+=16,180.5);
+    $pdf->Cell(16,8,$split_word[$index],1,0,'C');
+    $pdf->Ln(5);
+
+    }
+
+} endforeach;
+
+//--------------------------------------Emel-----------------------------//
+
+$pdf->SetFont('Arial','',12);
+$pdf->Cell(29,30,'Emel :',0,0,'R');
+$box =17;
+$string = $_POST['user_email'];
+$email = wordwrap($string,30,"<br>\n");
+$lines = explode("<br>\n", $email);
+
+foreach($lines as $line): {
+
+    $split_word= str_split($line);
+    //print_r($split_word);
+
+    for($index=0; $index<sizeof($split_word); $index++) {
+  
+    $pdf->SetFont('Arial','',12);
+    $pdf->SetXY($box+=8,202.5);                             //max 30 char
+    $pdf->Cell(8,8,$split_word[$index],1,0,'C');
+    $pdf->Ln(5);
+
+    }
+
+} endforeach;
+
 
 $pdf->Output();
 ?>
