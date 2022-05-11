@@ -90,7 +90,7 @@
     <div class="mb-3 row">
       <label for="mykad" class="col-sm-2 col-form-label">No.MyKad</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="ID_number" id="mykad" maxlength="12" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+        <input type="text" class="form-control" name="mykad" id="mykad" minlength="12"  maxlength="12" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
         <small>(Masukkan digit sahaja)</small>
       </div>
     </div>
