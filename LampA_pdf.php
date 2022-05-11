@@ -56,173 +56,127 @@ $pdf = new PDF();
 $pdf->AddPage();
 
 //--------------------------------------Nama----------------------------------//
-$pdf->Cell(20,80,'Nama :',0,0,'R');
-$box = 17;
-$box1 = 17;
-$box2 = 17;
-$string = $_POST['full_name'];
-$lines = explode("\n", $string);
+$pdf->SetFont('Arial', 'B', 12);
+$pdf->Cell(20, 80, 'Nama :', 0, 0, 'R');
+$box = 17; // preset left margin
+$full_name = wordwrap(strtoupper(trim($_POST['full_name'])), 20, "\n");
+$lines = explode("\n", $full_name); // max 3 lines only (index 0,1,2)
 
-foreach($lines as $line) :{
- 
-    $letter= str_split($line);
-    $pdf->SetFont('Arial','',12);
-
-    for($index=0; $index<20; $index++) {
-
-    $pdf->SetXY($box1+=8,52);
-    $pdf->Cell(8,8,strtoupper($letter[$index]),1,0,'C'); 
+$pdf->SetFont('Arial', '', 12);
+// line 1
+$data1 = str_split($lines[0]);
+for($i=0; $i<20; $i++) {
+    $letter = isset($data1[$i]) ? $data1[$i] : '';
+    $pdf->SetXY($box+=8, 52);
+    $pdf->Cell(8, 8, $letter, 1, 0, 'C'); 
     $pdf->Ln(5);
+}
 
+// line 2
+if (isset($lines[1])) { // not empty   
+    $box = 17; // reset left margin
+    $data2 = str_split($lines[1]);
+    for($i=0; $i<20; $i++) {
+        $letter = isset($data2[$i]) ? $data2[$i] : '';
+        $pdf->SetXY($box+=8, 60);
+        $pdf->Cell(8, 8, $letter, 1, 0, 'C'); 
+        $pdf->Ln(6);
     }
-    for($index=20; $index<40; $index++){
-
-    $pdf->SetFont('Arial','',12);
-    $pdf->SetXY($box2+=8,60);
-
-    if(ctype_space($letter[$index])){                   //check for spacing in the string
-
-        //echo 'This is a space, please delete this';
-        //$letter[$index]=ltrim($letter[$index]);       
-        //$letter[$index]=array_shift($letter);           //push array, take first value and replace. (belum jadi)
-
+} else { // render blank box
+    $box = 17; // reset left margin
+    for($i=0; $i<20; $i++) {
+        $pdf->SetXY($box+=8, 60);
+        $pdf->Cell(8, 8, '', 1, 0, 'C'); 
+        $pdf->Ln(6);
     }
+}
 
-    //$oristring = $letter[$index];
-    //$letter[$index]= str_pad($oristring, 60);         //fill the rest of empty placeholders with " "
-    $pdf->Cell(8,8,strtoupper($letter[$index]),1,0,'C'); 
-    //print_r($letter[$index]);
-
-    $pdf->Ln(6); 
-
+// line 3
+if (isset($lines[2])) { // not empty   
+    $box = 17; // reset left margin
+    $data3 = str_split($lines[2]);
+    for($i=0; $i<20; $i++) {
+        $letter = isset($data3[$i]) ? $data3[$i] : '';
+        $pdf->SetXY($box+=8, 68);
+        $pdf->Cell(8, 8, $letter, 1, 0, 'C'); 
+        $pdf->Ln(6);
     }
-
-    for($index=40; $index<60; $index++){
-
-    $pdf->SetXY($box+=8,68);
-    $pdf->SetFont('Arial','',12);
-    $pdf->Cell(8,8,strtoupper($letter[$index]),1,0,'C'); 
-    $pdf->Ln(5);
+} else { // render blank box
+    $box = 17; // reset left margin
+    for($i=0; $i<20; $i++) {
+        $pdf->SetXY($box+=8, 68);
+        $pdf->Cell(8, 8, '', 1, 0, 'C'); 
+        $pdf->Ln(6);
     }
-    
-} endforeach;
+}
 
 //--------------------------------------Nombor kp-----------------------------------//
-
-$pdf->Cell(76,30,'Nombor Kad Pengenalan Baru :',0,0,'R');
+$pdf->SetFont('Arial', 'B', 12);
+$pdf->Cell(76, 30, 'Nombor Kad Pengenalan Baru :', 0, 0, 'R');
 $box = 11.5;
-$string = $_POST['ID_number'];
-$id_number = wordwrap($string, 14,"<br>\n");
-//echo $full_name;
-//echo '<br>';
-$lines = explode("<br>\n", $id_number);
-//print_r($full_name);
-//echo '<br>';
-
-foreach($lines as $line): {
-
-    $split_word= str_split($line);
-    //print_r($split_word);
-    $pdf->SetFont('Arial','',12);
-    for($index=0; $index<sizeof($split_word); $index++) {
-
-    //$pdf->SetFont('Arial','',12);
-    $pdf->SetXY($box+=13.3,90);
-    $pdf->Cell(13.3,8,$split_word[$index],1,0,'C');
+$mykad = str_split(trim($_POST['mykad']));
+$pdf->SetFont('Arial', '', 12);
+for($i=0; $i<12; $i++) {
+    $digit = isset($mykad[$i]) ? $mykad[$i] : '';
+    $pdf->SetXY($box+=13.3, 92);
+    $pdf->Cell(13.3, 8, $digit, 1, 0, 'C');
     $pdf->Ln(5);
-
-    }
-
-} endforeach;
+}
 
 //--------------------------------------Nombor passport -----------------------------//
-
-$pdf->SetFont('Arial','B',12);
-$pdf->Cell(52,30,'Nombor Pasport :',0,0,'R');
-$box = 13;
-$string = $_POST['pasport_number'];
-$pasport_number = wordwrap($string, 13,"<br>\n");
-$lines = explode("<br>\n", $pasport_number);
-
-foreach($lines as $line): {
-
-    $split_word= str_split($line);
-    //print_r($split_word);
-
-    for($index=0; $index<sizeof($split_word); $index++) {
-  
-    $pdf->SetFont('Arial','',12);
-    $pdf->SetXY($box+=12.3,112);
-    $pdf->Cell(12.3,8,$split_word[$index],1,0,'C');
+$pdf->SetFont('Arial', 'B', 12);
+$pdf->Cell(52, 30, 'Nombor Pasport :', 0, 0, 'R');
+$box = 11.5;
+$passport = str_split(trim($_POST['passport_number']));
+$pdf->SetFont('Arial', '', 12);
+for($i=0; $i<12; $i++) {
+    $digit = isset($passport[$i]) ? $passport[$i] : '';
+    $pdf->SetXY($box+=13.3, 114);
+    $pdf->Cell(13.3, 8, $digit, 1, 0, 'C');
     $pdf->Ln(5);
-
-    }
-
-} endforeach;
+}
 
 //--------------------------------------Nombor Akaun Bank --------------------------------//
-$pdf->SetFont('Arial','',12);
-$pdf->Cell(57.5,30,'Nombor Akaun Bank :',0,0,'R');
+$pdf->SetFont('Arial', 'B', 12);
+$pdf->Cell(57.5, 30, 'Nombor Akaun Bank :', 0, 0, 'R');
 $box = 15 ;
-$string = $_POST['acc_number'];
-$acc_number = wordwrap($string, 16,"<br>\n");
-$lines = explode("<br>\n", $acc_number);
-
-foreach($lines as $line): {
-
-    $split_word= str_split($line);
-    //print_r($split_word);
-
-    for($index=0; $index<sizeof($split_word); $index++) {
-    
-    $pdf->SetFont('Arial','',12);
-    $pdf->SetXY($box+=10,134);
-    $pdf->Cell(10,8,$split_word[$index],1,0,'C');
+$acc = str_split($_POST['acc_number']);
+$pdf->SetFont('Arial', '', 12);
+for($i=0; $i<16; $i++) {
+    $digit = isset($acc[$i]) ? $acc[$i] : '';
+    $pdf->SetXY($box+=10, 134);
+    $pdf->Cell(10, 8, $digit, 1, 0, 'C');
     $pdf->Ln(5);
+}
 
-    }
+$pdf->SetFont('Arial', 'B', 12);
+$pdf->Cell(41, 35, 'Nama Bank :', 0, 0, 'R');
 
-} endforeach;
-    
-    $pdf->SetFont('Arial','',12);
-    $pdf->Cell(41,35,'Nama Bank :',0,0,'R');
-    $pdf->SetXY(25,158.5);
-    $pdf->Cell(160,8,$_POST['nama-bank'],1,0,'L');
-    $pdf->Ln(5);
+$pdf->SetFont('Arial', '', 12);
+$pdf->SetXY(25, 158.5);
+$pdf->Cell(160, 8, $nama_bank.' ('.$kod_bank.')', 1, 0, 'L');
+$pdf->Ln(5);
 
 //--------------------------------------Nombor telefon-----------------------------//
-
-$pdf->SetFont('Arial','',12);
-$pdf->Cell(49.5,30,'Nombor Telefon :',0,0,'R');
+$pdf->SetFont('Arial', 'B', 12);
+$pdf->Cell(49.5, 30, 'Nombor Telefon :', 0, 0, 'R');
 $box = 10.5;
-$string = $_POST['phone_num'];
-$phone_num = wordwrap($string, 11,"<br>\n");
-$lines = explode("<br>\n", $phone_num);
-
-foreach($lines as $line): {
-
-    $split_word= str_split($line);
-    //print_r($split_word);
-
-    for($index=0; $index<sizeof($split_word); $index++) {
-  
-    $pdf->SetFont('Arial','',12);
-    $pdf->SetXY($box+=14.6,180.5);
-    $pdf->Cell(14.6,8,$split_word[$index],1,0,'C');
+$phone = str_split($_POST['phone_num']);
+$pdf->SetFont('Arial', '', 12);
+for($i=0; $i<11; $i++) { // no.hp maxlength = 11 (xxx-xxxxxxxx)
+    $digit = isset($phone[$i]) ? $phone[$i] : '';
+    $pdf->SetXY($box+=14.6, 180.5);
+    $pdf->Cell(14.6, 8, $digit, 1, 0, 'C');
     $pdf->Ln(5);
-
-    }
-
-} endforeach;
+}
 
 //--------------------------------------Emel-----------------------------//
-
-$pdf->SetFont('Arial','',12);
-    $pdf->Cell(29,30,'Emel :',0,0,'R');
-    $pdf->SetXY(25.5,202.5);
-    $pdf->Cell(160,8,$_POST['user_email'],1,0,'L');
-    $pdf->Ln(5);
-
+$pdf->SetFont('Arial', 'B', 12);
+$pdf->Cell(29, 30, 'Emel :', 0, 0, 'R');
+$pdf->SetXY(25.5, 202.5);
+$pdf->SetFont('Arial', '', 12);
+$pdf->Cell(160, 8, $_POST['user_email'], 1, 0, 'L');
+$pdf->Ln(5);
 
 $pdf->Output();
 ?>
