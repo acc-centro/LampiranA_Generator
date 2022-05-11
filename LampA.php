@@ -98,7 +98,7 @@
     <div class="mb-3 row">
       <label for="passport" class="col-sm-2 col-form-label">No.Passport</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" maxlength="13" name="pasport_number" id="passport" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+        <input type="text" class="form-control" maxlength="13" name="passport_number" id="passport" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
       </div>
     </div>
 
