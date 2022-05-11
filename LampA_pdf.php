@@ -7,6 +7,18 @@ $bank = explode('|', $_POST['bank']);
 $nama_bank = $bank[0];
 $kod_bank = $bank[1];
 $length_required = $bank[2];
+
+// TODO: create validation
+/*
+ fullname * alphabet only
+ mykad, passport * numeric only
+ no akaun bank * validate length submitted with $length_required
+ phone * numeric only, maxlength 11
+ email * validate emel format xxx@yyy.zzz
+ */ 
+
+// if validation passed, proceed below...
+
 require('fpdf/fpdf.php');
 
 class PDF extends FPDF
