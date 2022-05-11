@@ -2,6 +2,11 @@
 //require LampA.php
 //codes need to be alter (Backend) 
 
+// catch raw bank, explode by |
+$bank = explode('|', $_POST['bank']);
+$nama_bank = $bank[0];
+$kod_bank = $bank[1];
+$length_required = $bank[2];
 require('fpdf/fpdf.php');
 
 class PDF extends FPDF

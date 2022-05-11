@@ -117,11 +117,11 @@
     <div class="mb-3 row">
       <label for="nama_bank" class="col-sm-2 col-form-label">Nama Bank</label>
       <div class="col-sm-10">
-        <select class="form-control form-select" aria-label="Pilih bank" name="nama-bank" id="nama_bank" required>
-            <option value="">-- SIla pilih Bank --</option>
-          <?php foreach($bank['data'] as $bank): ?>
-            <option value="<?= $bank['BNK_DESC']; ?>"><?= $bank['BNK_CODE'].' - '.$bank['BNK_DESC'].' ('.$bank['ACC_LENGTH'].' digit)'; ?></option>
-          <?php endforeach; ?>
+        <select class="form-control form-select" aria-label="Pilih bank" name="bank" id="nama_bank" required>
+          <option value="">-- Sila pilih bank --</option>
+           <?php foreach($bank['data'] as $bank): ?>
+             <option value="<?= $bank['BNK_DESC'].'|'.$bank['BNK_CODE'].'|'.$bank['ACC_LENGTH']; ?>"><?= $bank['BNK_CODE'].' - '.$bank['BNK_DESC'].' ('.$bank['ACC_LENGTH'].' digit)'; ?></option>
+           <?php endforeach; ?>
         </select>
       </div>
     </div>
