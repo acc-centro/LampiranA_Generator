@@ -14,6 +14,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" crossorigin="anonymous"></script>
 
+
   <style>
       @import url('https://rsms.me/inter/inter.css');
       html { font-family: 'Inter', sans-serif; }
@@ -82,7 +83,8 @@
   <div class="mb-3 row">
       <label for="nama" class="col-sm-2 col-form-label">Nama Penuh</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" maxlength="60" name="full_name" id="nama" style="text-transform:uppercase;" oninput = "this.value = this.value.replace(/\s+/g, ' ');" required>
+        <input onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" type="text" class="form-control" 
+        maxlength="60" name="full_name" id="nama" style="text-transform:uppercase;" oninput = "this.value = this.value.replace(/\s+/g, ' ');" required>
         <small>(Ejaan nama seperti pada kad pengenalan. Gelaran pada hadapan nama seperti Datuk, Mr., Encik, Haji, Cik dsb tidak dibenarkan)</small>
       </div>
     </div>
@@ -90,7 +92,8 @@
     <div class="mb-3 row">
       <label for="mykad" class="col-sm-2 col-form-label">No.MyKad</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="mykad" id="mykad" minlength="12"  maxlength="12" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+        <input type="number" class="form-control" name="mykad" id="mykad" onKeyPress="if(this.value.length==12) return false;"
+         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
         <small>(Masukkan digit sahaja)</small>
       </div>
     </div>
@@ -98,7 +101,8 @@
     <div class="mb-3 row">
       <label for="passport" class="col-sm-2 col-form-label">No.Passport</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" maxlength="13" name="passport_number" id="passport" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+        <input type="number" class="form-control" name="passport_number" id="passport" onKeyPress="if(this.value.length==13) return false;"
+        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
       </div>
     </div>
 
@@ -137,7 +141,8 @@
     <div class="mb-3 row">
       <label for="num_phone" class="col-sm-2 col-form-label">No.Telefon </label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" maxlength="11" name="phone_num" id="num_phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
+        <input type="number" class="form-control" name="phone_num" id="num_phone" onKeyPress="if(this.value.length==11) return false;"
+        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
         <small>(Masukkan digit sahaja)</small>
       </div>
     </div>
@@ -145,7 +150,8 @@
     <div class="mb-5 row">
       <label for="email" class="col-sm-2 col-form-label">Emel </label>
       <div class="col-sm-10">
-        <input type="email" class="form-control" maxlength="30" name="user_email" id="email" required>
+        <input type="email" class="form-control" maxlength="30" pattern="^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+" name="user_email" id="email" required>
+
       </div>
     </div>
 

@@ -10,11 +10,11 @@ $length_required = $bank[2];
 
 // TODO: create validation
 /*
- fullname * alphabet only
- mykad, passport * numeric only
+ fullname * alphabet only (done)
+ mykad, passport * numeric only (done)
  no akaun bank * validate length submitted with $length_required
- phone * numeric only, maxlength 11
- email * validate emel format xxx@yyy.zzz
+ phone * numeric only, maxlength 11 (done)
+ email * validate emel format xxx@yyy.zzz(done)
  */ 
 
 // if validation passed, proceed below...
