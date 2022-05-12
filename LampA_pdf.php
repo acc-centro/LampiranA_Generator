@@ -8,13 +8,15 @@ $nama_bank = $bank[0];
 $kod_bank = $bank[1];
 $length_required = $bank[2];
 
+
+
 // TODO: create validation
 /*
- fullname * alphabet only (done)
- mykad, passport * numeric only (done)
+ fullname * alphabet only (done in LampA.php)
+ mykad, passport * numeric only (done in LampA.php)
  no akaun bank * validate length submitted with $length_required
- phone * numeric only, maxlength 11 (done)
- email * validate emel format xxx@yyy.zzz(done)
+ phone * numeric only, maxlength 11 (done in LampA.php)
+ email * validate emel format xxx@yyy.zzz(done in LampA.php)
  */ 
 
 // if validation passed, proceed below...
@@ -124,7 +126,7 @@ if (isset($lines[2])) { // not empty
 
 //--------------------------------------Nombor kp-----------------------------------//
 $pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(76, 30, 'Nombor Kad Pengenalan Baru :', 0, 0, 'R');
+$pdf->Cell(79.5, 32, 'Nombor Kad Pengenalan Baru :', 0, 0, 'R');
 $box = 11.5;
 $mykad = str_split(trim($_POST['mykad']));
 $pdf->SetFont('Arial', '', 12);
@@ -137,7 +139,7 @@ for($i=0; $i<12; $i++) {
 
 //--------------------------------------Nombor passport -----------------------------//
 $pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(52, 30, 'Nombor Pasport :', 0, 0, 'R');
+$pdf->Cell(51.5, 30, 'Nombor Pasport :', 0, 0, 'R');
 $box = 11.5;
 $passport = str_split(trim($_POST['passport_number']));
 $pdf->SetFont('Arial', '', 12);
@@ -150,7 +152,7 @@ for($i=0; $i<12; $i++) {
 
 //--------------------------------------Nombor Akaun Bank --------------------------------//
 $pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(57.5, 30, 'Nombor Akaun Bank :', 0, 0, 'R');
+$pdf->Cell(60.5, 26, 'Nombor Akaun Bank :', 0, 0, 'R');
 $box = 15 ;
 $acc = str_split($_POST['acc_number']);
 $pdf->SetFont('Arial', '', 12);
@@ -162,8 +164,7 @@ for($i=0; $i<16; $i++) {
 }
 
 $pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(41, 35, 'Nama Bank :', 0, 0, 'R');
-
+$pdf->Cell(41.5, 35, 'Nama Bank :', 0, 0, 'R');
 $pdf->SetFont('Arial', '', 12);
 $pdf->SetXY(25, 158.5);
 $pdf->Cell(160, 8, $nama_bank.' ('.$kod_bank.')', 1, 0, 'L');
@@ -171,7 +172,7 @@ $pdf->Ln(5);
 
 //--------------------------------------Nombor telefon-----------------------------//
 $pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(49.5, 30, 'Nombor Telefon :', 0, 0, 'R');
+$pdf->Cell(51, 30, 'Nombor Telefon :', 0, 0, 'R');
 $box = 10.5;
 $phone = str_split($_POST['phone_num']);
 $pdf->SetFont('Arial', '', 12);
