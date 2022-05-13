@@ -9,7 +9,6 @@ $kod_bank = $bank[1];
 $length_required = $bank[2];
 
 
-
 // TODO: create validation
 /*
  fullname * alphabet only (done in LampA.php)
@@ -133,7 +132,7 @@ $pdf->SetFont('Arial', '', 12);
 for($i=0; $i<12; $i++) {
     $digit = isset($mykad[$i]) ? $mykad[$i] : '';
     $pdf->SetXY($box+=13.3, 92);
-    $pdf->Cell(13.3, 8, $digit, 1, 0, 'C');
+    $pdf->Cell(13.3, 8, $digit, 1, 0, 'C'); 
     $pdf->Ln(5);
 }
 
@@ -154,6 +153,19 @@ for($i=0; $i<12; $i++) {
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(60.5, 26, 'Nombor Akaun Bank :', 0, 0, 'R');
 $box = 15 ;
+$acc = trim($POST['acc_number']);
+if(strlen($acc) > $length_required )
+{
+// kasi pelik2 sni coding
+for($i=0; $i<16; $i++) {
+    $digit = isset($acc[$i]) ? $acc[$i] : '';
+    $pdf->SetXY($box+=10, 134);
+    $pdf->Cell(10, 8, $digit, 1, 0, 'C');
+    $pdf->Ln(5);
+}
+}
+else 
+{
 $acc = str_split($_POST['acc_number']);
 $pdf->SetFont('Arial', '', 12);
 for($i=0; $i<16; $i++) {
@@ -162,12 +174,14 @@ for($i=0; $i<16; $i++) {
     $pdf->Cell(10, 8, $digit, 1, 0, 'C');
     $pdf->Ln(5);
 }
+}
 
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(41.5, 35, 'Nama Bank :', 0, 0, 'R');
 $pdf->SetFont('Arial', '', 12);
 $pdf->SetXY(25, 158.5);
 $pdf->Cell(160, 8, $nama_bank.' ('.$kod_bank.')', 1, 0, 'L');
+
 $pdf->Ln(5);
 
 //--------------------------------------Nombor telefon-----------------------------//
