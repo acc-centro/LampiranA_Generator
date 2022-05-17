@@ -80,11 +80,23 @@
 
 <div class="container">
   <form action="LampA_pdf.php" method="post">
+
+<!-- JavaScript for full name so it only allows full name and spacing onkeypress on the text field -->
+<script>
+  $(document).ready(function(){
+    $("#nama").keypress(function(event){
+        var inputValue = event.charCode;
+        if(!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0)){
+            event.preventDefault();
+        }
+    });
+});
+</script>
+
   <div class="mb-3 row">
       <label for="nama" class="col-sm-2 col-form-label">Nama Penuh</label>
       <div class="col-sm-10">
-        <input onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" type="text" class="form-control" 
-        maxlength="60" name="full_name" id="nama" style="text-transform:uppercase;" oninput = "this.value = this.value.replace(/\s+/g, ' ');" required>
+        <input type="text" class="form-control" maxlength="60" name="full_name" id="nama" style="text-transform:uppercase;" required>
         <small>(Ejaan nama seperti pada kad pengenalan. Gelaran pada hadapan nama seperti Datuk, Mr., Encik, Haji, Cik dsb tidak dibenarkan)</small>
       </div>
     </div>
@@ -151,7 +163,6 @@
       <label for="email" class="col-sm-2 col-form-label">Emel </label>
       <div class="col-sm-10">
         <input type="email" class="form-control" maxlength="30" pattern="^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+" name="user_email" id="email" required>
-
       </div>
     </div>
 

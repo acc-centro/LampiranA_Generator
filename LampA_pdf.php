@@ -13,7 +13,7 @@ $length_required = $bank[2];
 /*
  fullname * alphabet only (done in LampA.php)
  mykad, passport * numeric only (done in LampA.php)
- no akaun bank * validate length submitted with $length_required
+ no akaun bank * validate length submitted with $length_required (done tp ndk cntik)
  phone * numeric only, maxlength 11 (done in LampA.php)
  email * validate emel format xxx@yyy.zzz(done in LampA.php)
  */ 
@@ -153,27 +153,32 @@ for($i=0; $i<12; $i++) {
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(60.5, 26, 'Nombor Akaun Bank :', 0, 0, 'R');
 $box = 15 ;
-$acc = trim($POST['acc_number']);
-if(strlen($acc) > $length_required )
+$acc = trim($_POST['acc_number']);
+if(strlen($acc) == $length_required )
 {
-// kasi pelik2 sni coding
+// kalo length sama validation passed
 for($i=0; $i<16; $i++) {
-    $digit = isset($acc[$i]) ? $acc[$i] : '';
-    $pdf->SetXY($box+=10, 134);
-    $pdf->Cell(10, 8, $digit, 1, 0, 'C');
-    $pdf->Ln(5);
+    $acc = str_split($_POST['acc_number']);
+    $pdf->SetFont('Arial', '', 12);
+    for($i=0; $i<16; $i++) {
+        $digit = isset($acc[$i]) ? $acc[$i] : '';
+        $pdf->SetXY($box+=10, 134);
+        $pdf->Cell(10, 8, $digit, 1, 0, 'C');
+        $pdf->Ln(5); }
 }
 }
-else 
+else
 {
-$acc = str_split($_POST['acc_number']);
-$pdf->SetFont('Arial', '', 12);
-for($i=0; $i<16; $i++) {
-    $digit = isset($acc[$i]) ? $acc[$i] : '';
-    $pdf->SetXY($box+=10, 134);
-    $pdf->Cell(10, 8, $digit, 1, 0, 'C');
-    $pdf->Ln(5);
-}
+    //required warning should go here : review later
+    for($i=0; $i<16; $i++) {
+        $acc = str_split('ERROR MAX LENGTH');
+        $pdf->SetFont('Arial', '', 12);
+        for($i=0; $i<16; $i++) {
+            $digit = isset($acc[$i]) ? $acc[$i] : '';
+            $pdf->SetXY($box+=10, 134);
+            $pdf->Cell(10, 8, $digit, 1, 0, 'C');
+            $pdf->Ln(5); }
+    }
 }
 
 $pdf->SetFont('Arial', 'B', 12);
