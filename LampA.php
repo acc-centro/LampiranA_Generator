@@ -86,7 +86,7 @@
   $(document).ready(function(){
     $("#nama").keypress(function(event){
         var inputValue = event.charCode;
-        if(!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0)){
+        if(!(inputValue >= 65 && inputValue <= 122) && (inputValue != 32 && inputValue != 0)){
             event.preventDefault();
         }
     });
@@ -96,7 +96,7 @@
   <div class="mb-3 row">
       <label for="nama" class="col-sm-2 col-form-label">Nama Penuh</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" maxlength="60" name="full_name" id="nama" style="text-transform:uppercase;" required>
+        <input type="text" class="form-control" maxlength="60" name="full_name" id="nama" style="text-transform:uppercase;" oninput = "this.value = this.value.replace(/\s+/g, ' ');" required>
         <small>(Ejaan nama seperti pada kad pengenalan. Gelaran pada hadapan nama seperti Datuk, Mr., Encik, Haji, Cik dsb tidak dibenarkan)</small>
       </div>
     </div>

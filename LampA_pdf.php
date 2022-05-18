@@ -169,7 +169,7 @@ for($i=0; $i<16; $i++) {
 }
 else
 {
-    //required warning should go here : review later
+    //notice for unmatch maxlength should go here : review later
     for($i=0; $i<16; $i++) {
         $acc = str_split('ERROR MAX LENGTH');
         $pdf->SetFont('Arial', '', 12);
