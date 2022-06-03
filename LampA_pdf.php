@@ -46,21 +46,32 @@ class PDF extends FPDF
     {
         
         //footer declaration
-        $this->SetFont('Arial','',12);
-        $this->Cell(177,40,'Saya mengesahkan bahawa maklumat dan butir-butir mengenai akaun bank seperti di',0,0,'R');
+        $this->SetFont('Arial','',11);
+        $this->Cell(173,25,'Saya mengesahkan bahawa maklumat dan butir-butir mengenai akaun bank seperti di atas',0,0,'R');
         $this->Ln(0);
-        $this->Cell(176,49,'atas adalah milik saya. Saya bersetuju caj perkhidmatan bank (jika ada) atas bayaran',0,0,'R');
+        $this->Cell(178,34,'adalah milik saya. Saya bersetuju caj perkhidmatan bank (jika ada) atas bayaran yang dikredit',0,0,'R');
         $this->Ln(0);
-        $this->Cell(134.5,57,'yang dikredit ke akaun berkenaan didebit ke akaun yang sama.',0,0,'R');
+        $this->Cell(102,43,'ke akaun berkenaan didebit ke akaun yang sama.',0,0,'R');
         $this->Ln(0);
         
         //form footer
         $this->SetFont('Arial','',12);
-        $this->Cell(104,85,'Tandatangan :__________________________',0,0,'R');
+        $this->Cell(95,85,'Tandatangan :______________________',0,0,'R');
         $this->Ln(12);
-        $this->Cell(104,85,'Nama Penuh :__________________________',0,0,'R');  $this->Cell(175,85,'Cop Syarikat :__________________',0,0,'L');
+
+        $this->SetFont('Arial','',12);
+        $this->Cell(95,85,'Nama Penuh :______________________',0,0,'R');
+        $this->Cell(-3,85, $_POST['full_name'], 0, 0, 'R');
+
+        $this->Cell(85,85,'Cop Syarikat :__________________',0,0,'R');
         $this->Ln(12);
-        $this->Cell(104,85,'Tarikh            :__________________________',0,0,'R');
+
+        $this->SetFont('Arial','',12);
+        $this->Cell(95,85,'Tarikh            :______________________',0,0,'R');
+
+        //footnote
+        $this->SetFont('Arial','',8);
+        $this->Cell(0,120,'Footnote',0,0,'R');
 
     }
 }
