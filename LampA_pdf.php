@@ -61,9 +61,10 @@ class PDF extends FPDF
 
         $this->SetFont('Arial','',12);
         $this->Cell(95,85,'Nama Penuh :______________________',0,0,'R');
-        $this->Cell(-3,85, $_POST['full_name'], 0, 0, 'R');
+        $this->SetXY(53,219.5);
+        $this->Cell(90,85, $_POST['full_name'], 0, 0, 'L');
 
-        $this->Cell(85,85,'Cop Syarikat :__________________',0,0,'R');
+        $this->Cell(45,85,'Cop Syarikat :_________________',0,0,'R');
         $this->Ln(12);
 
         $this->SetFont('Arial','',12);
